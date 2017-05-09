@@ -1,0 +1,11 @@
+﻿使用libusb的基本操作如下：
+1.通过调用libusb_init来初始化库，同时创建一个对话；
+2.调用libusb_get_device_list来获得已经连接的设备的队列。这会创建一个libusb_device的数组，包含了所有连接到系统上的usb设备；
+3.循环遍历所有的设备来检查他们的选项；
+4.发现其中需要的一个，使用libusb_open或者libusb_open_device_with_vid_pid（当你知道这个设备vendor id和product id）来打开设备；
+5.使用libusb_free_device_list清除使用libusb_get_device_list获得的队列；
+6.通过libusb_claim_interface请求接口（需要你知道设备的接口数值）；
+7.操作想得到的I/O;
+8.通过libusb_release_interface释放设备；
+9.通过libusb_close将你之前打开的设备关闭；
+10.通过libusb_exit来关闭对话；
