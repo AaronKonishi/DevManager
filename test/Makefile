@@ -1,5 +1,5 @@
 
-all: main lsusb
+all: main listdevs
 
 main: main.o
 	gcc main.o -o main
@@ -10,8 +10,8 @@ main.o: main.c
 INC += -I../port/libusb_build/include/
 LIB += -L../port/libusb_build/lib/ -lusb-1.0
 
-lsusb: lsusb.o
-	gcc lsusb.o $(INC) $(LIB) -o lsusb 
+listdevs: listdevs.o
+	gcc listdevs.o $(INC) $(LIB) -o listdevs
 
-lsusb.o: lsusb.c
-	gcc lsusb.c $(INC) $(LIB) -c -o lsusb.o
+listdevs.o: listdevs.c
+	gcc listdevs.c $(INC) $(LIB) -c -o listdevs.o
