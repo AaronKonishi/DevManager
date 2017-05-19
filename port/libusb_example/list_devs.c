@@ -19,10 +19,11 @@ static void print_devs(libusb_device **devs)
             return ;
         }
 
-        printf("%04x:%04x (bus %d, device %d)",
+        printf("%04x:%04x (bus %d, device %d, port %d)",
             desc.idVendor, desc.idProduct,
             libusb_get_bus_number(dev),
-            libusb_get_device_address(dev));
+            libusb_get_device_address(dev),
+            libusb_get_port_number(dev));
 
         ret = libusb_get_port_numbers(dev, path, sizeof(path));
         if(ret > 0)
