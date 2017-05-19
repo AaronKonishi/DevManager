@@ -1,6 +1,7 @@
 
 OBJS += list_devs
 OBJS += libusb_version
+OBJS += hotplugtest
 
 LIB = -L../libusb_build/lib/ -lusb-1.0
 INC = -I../libusb_build/include/libusb-1.0/
@@ -16,3 +17,8 @@ list_devs: list_devs.o
 	gcc list_devs.o $(INC) $(LIB) -o list_devs
 list_devs.o: list_devs.c
 	gcc list_devs.c -c $(INC) -o list_devs.o
+
+hotplugtest: hotplugtest.o
+	gcc hotplugtest.o $(INC) $(LIB) -o hotplugtest
+hotplugtest.o: hotplugtest.c
+	gcc hotplugtest.c -c $(INC) -o hotplugtest.o
