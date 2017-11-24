@@ -1,0 +1,43 @@
+libusb_set_debug();
+
+int libusb_init(libusb_context ** context)
+void libusb_exit(struct libusb_context * ctx)
+
+int libusb_get_device_list();    libusb_device
+libusb_free_device_list();
+
+libusb_open();             libusb_device_handle
+libusb_open_device_with_vid_pid();
+libusb_close();
+libusb_get_device();
+
+libusb_get_bus_number();
+libusb_get_port_number();
+libusb_get_port_numbers(); <==  libusb_get_port_path();
+libusb_get_device_address();
+libusb_get_device_speed();
+
+libusb_setlocale();
+libusb_strerror();
+
+结构体：
+libusb_context
+libusb_device
+libusb_version
+libusb_device_handle
+struct libusb_device_descriptor
+
+枚举类型：
+libusb_strerror
+libusb_log_level
+libusb_speed
+libusb_supported_speed
+
+
+问题：
+1.lock的使用；
+3.我们的设备管理用不到数据传输相关的操作吧，需要：Carlife的ALA协议、苹果的NCM协议、安卓的ADB协议；
+4.与HUB相关的有哪些操作？ 
+5.port，device，bus等之间的关系；
+6.如何处理hutplug的events；
+7.libusb_ref_device(), libusb_unref_device();
